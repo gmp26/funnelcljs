@@ -13,7 +13,7 @@
                  [figwheel-sidecar "0.5.4-6"]
                  [rum "0.10.4"]]
   
-  :plugins [                                                ;[lein-figwheel "0.5.4-7"]
+  :plugins [;[lein-figwheel "0.5.4-7"]
             [lein-cljsbuild "1.1.3" :exclusions [[org.clojure/clojure]]]]
 
   :source-paths ["src" "script"]
@@ -39,6 +39,7 @@
                            :output-to "resources/public/js/compiled/funnel.js"
                            :output-dir "resources/public/js/compiled/out"
                            :source-map-timestamp true}}
+
                ;; This next build is an compressed minified build for
                ;; production. You can build this with:
                ;; lein cljsbuild once min
@@ -46,8 +47,9 @@
                 :source-paths ["src"]
                 :compiler {:output-to "resources/public/js/compiled/funnel.js"
                            :main funnel.core
-                           :optimizations :whitespace
-                           :pretty-print true}}]}
+                           :externs ["externs/funnel.js"]
+                           :optimizations :advanced
+                           :pretty-print false}}]}
 
   :figwheel {;; :http-server-root "public" ;; default and assumes "resources"
              ;; :server-port 3449 ;; default

@@ -4,8 +4,6 @@
 
 (enable-console-print!)
 
-#_(println "This text is printed from src/funnel/core.cljs. Go ahead and edit it and see reloading in action.")
-
 ;; define your app data so that it doesn't get over-written on reload
 
 (defonce app-state (atom {:text "Hello world!"}))
@@ -30,4 +28,4 @@
   (println "mountcomponent called")
   (rum/mount (main/container) el))
 
-(set! (.-mountComponent js/window) mount-component)
+(set! (.-exportedComponent js/window) mount-component)

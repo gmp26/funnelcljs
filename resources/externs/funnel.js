@@ -1,0 +1,2 @@
+var funnel;
+var exportedComponent;
